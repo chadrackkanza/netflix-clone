@@ -1,4 +1,4 @@
-name: Test React Native App
+name: Test React  App
 on: workflow_dispatch
 jobs: 
   test:
