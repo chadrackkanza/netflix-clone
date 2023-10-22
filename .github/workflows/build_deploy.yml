@@ -20,6 +20,7 @@ jobs:
       - name: Test 
         run: npm run test
   build:
+    ready: test
     runs-on: ubuntu-latest
     steps:  
       - name: Code
@@ -33,6 +34,7 @@ jobs:
       - name: Build 🔧 # This example project is built using npm and outputs the result to the 'build' folder. Replace with the commands required to build your project, or remove this step entirely if your site is pre-built.
         run: npm run build
   deploy:
+    ready: build
     runs-on: ubuntu-latest
     steps:  
       - name: Code
@@ -43,6 +45,8 @@ jobs:
           node-version: 18
       - name: Install
         run: npm install
+      - name: Build 🔧 
+        run: npm run build
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
