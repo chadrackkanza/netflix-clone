@@ -20,7 +20,7 @@ jobs:
       - name: Test 
         run: npm run test
   build:
-    ready: test
+    needs: test
     runs-on: ubuntu-latest
     steps:  
       - name: Code
@@ -34,7 +34,7 @@ jobs:
       - name: Build 🔧 # This example project is built using npm and outputs the result to the 'build' folder. Replace with the commands required to build your project, or remove this step entirely if your site is pre-built.
         run: npm run build
   deploy:
-    ready: build
+    needs: build
     runs-on: ubuntu-latest
     steps:  
       - name: Code
